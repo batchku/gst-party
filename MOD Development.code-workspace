@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "Tutorials"
+		},
+		{
+			"path": "/home/ali/Documents/of_v0.11.0_linux64gcc6_release/libs/openFrameworks"
+		},
+		{
+			"path": "/home/ali/Documents/of_v0.11.0_linux64gcc6_release/examples"
+		},
+		{
+			"path": "/home/ali/Documents/of_v0.11.0_linux64gcc6_release/apps/myApps"
+		}
+	],
+	"settings": {}
+}

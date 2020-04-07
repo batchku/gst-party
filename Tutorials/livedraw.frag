@@ -1,7 +1,11 @@
+#version 100
+ #ifdef GL_ES
+ precision mediump float;
+ #endif
 precision highp float;
 
 uniform sampler2D tex0;
-uniform sampler2D maskTex;
+//uniform sampler2D maskTex;
 
 uniform float thresh;
 uniform float softness;
@@ -12,7 +16,7 @@ varying vec2 texCoordVarying;
 
 void main()
 {
-	// Get color value from
+    // Get color value from
     vec3 src = texture2D(tex0, texCoordVarying).rgb;
 
     // Thresholding
@@ -23,10 +27,11 @@ void main()
     fValue = float(invert) * (1.-fValue) + (1.-float(invert))*fValue;
 
     // Get alpha value
-    float mask = texture2D(maskTex, texCoordVarying).a;
+    // float mask = texture2D(maskTex, texCoordVarying).a;
 
     // combine mask and threshold
-    vec4 calc=vec4(fValue*opacity,fValue*opacity,fValue*opacity,fValue*mask*opacity);
+    //vec4 calc=vec4(fValue*opacity,fValue*opacity,fValue*opacity,fValue*mask*opacity);
+    vec4 calc=vec4(fValue*opacity,fValue*opacity,fValue*opacity,fValue*1.0*opacity);
 
     // Set
     gl_FragColor = calc;
