@@ -10,3 +10,6 @@ gst-launch-1.0 v4l2src device=/dev/video2 ! "video/x-raw,format=YUY2,width=1920,
 
 # Play video from camera through shader
 gst-launch-1.0 v4l2src ! glupload ! glshader fragment="\"`cat livedraw.frag`\"" ! glimagesink
+
+# Scale a video to 100 px width
+gst-launch-1.0 v4l2src device=/dev/video2 ! "image/jpeg,framerate=30/1,width=1920,height=1080" ! jpegparse ! jpegdec ! video/x-raw ! videoconvert ! "video/x-raw,width=1920,height=1080,format=BGRx,framerate=30/1" ! videoscale  ! video/x-raw,width=100 ! ximagesink sync=false
